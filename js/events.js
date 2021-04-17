@@ -36,10 +36,10 @@ limpiar.onclick = () => {
 
 /////////////////////////////////////////////////
 // Ahora capturamos input del usuario
-let myNewUserInput = document.getElementById("usuario");
+//let myNewUserInput = document.getElementById("usuario");
 
-myNewUserInput.onkeydown = () => console.log("tecla presionada");
-myNewUserInput.onkeyup =  () => console.log("se dejo presionar tecla")
+//myNewUserInput.onkeydown = () => console.log("tecla presionada");
+//myNewUserInput.onkeyup =  () => console.log("se dejo presionar tecla")
 
 
 
