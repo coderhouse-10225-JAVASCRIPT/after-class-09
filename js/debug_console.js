@@ -2,6 +2,7 @@ class DebugConsole {
     constructor() {
         this.text = "<h2>Consola de Debug</h2><br>";
         this.debug_mode = false;
+        this.htmlconsole = null;
 
         //let myBody = document.body;
         document.body.onkeydown = (evento) => {
@@ -20,8 +21,10 @@ class DebugConsole {
                 } else {
                     this.disable();
                 }
-
-
+            } else {
+                if(this.debug_mode && this.htmlconsole){
+                    this.htmlconsole.innerHTML = this.text
+                }
             }
 
         }
@@ -32,15 +35,19 @@ class DebugConsole {
     }
 
     enable() {
-        let htmlconsole = document.createElement("div");
-        htmlconsole.id = "console";
-        htmlconsole.innerHTML = this.text;
-        document.body.appendChild(htmlconsole);
+        this.htmlconsole = document.createElement("div");
+        this.htmlconsole.id = "console";
+        this.htmlconsole.innerHTML = this.text;
+        this.htmlconsole.style.cssText = 'position:absolute;left:0px;top:0px;width:100%;height:100%;opacity:0.8;z-index:100;background:black;color:white';
+
+        document.body.appendChild(this.htmlconsole);
 
     }
 
     disable() {
-        let htmlconsole = document.getElementById("console");
-        htmlconsole.parentNode.removeChild(htmlconsole);
+        if(this.htmlconsole) {
+            this.htmlconsole.parentNode.removeChild(this.htmlconsole);
+        }
+       
     }
 }
